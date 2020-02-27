@@ -2,9 +2,9 @@
 
 $url = 'https://sportsinteraction.com/specials/us-elections-betting/';
 $json = file_get_contents($url);
-$json = get_string_between($json, '<div data-component="Games" data-props="{', '"></div>');
+$json = get_string_between($json, '<div data-component="Games" data-props="', '"></div>');
 $json = str_replace('&quot;', "\"", $json);
-$json = '[{'.$json.']';
+$json = '['.$json.']';
 $json =  json_decode($json, true);
 
 $temp_bet = $json[0]['games'];
